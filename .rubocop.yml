@@ -1,0 +1,18 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-factory_bot
+  - rubocop-capybara
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "bin/**/*"
+    - "config/**/*"
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
