@@ -1,0 +1,14 @@
+<div class="border border-dark-subtle border-3 p-2">
+  <div class="row">
+    <div class="col">
+      <h3 class="d-inline-block border-bottom border-black m-0">
+        <%= quote.name %>
+      </h3>
+    </div>
+
+    <div class="col d-flex align-items-end justify-content-end column-gap-3">
+      <%= link_to "Delete", quote, { method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" } %>
+      <%= link_to "Edit", edit_quote_path(quote), { class: "btn btn-primary" } %>
+    </div>
+  </div>
+</div>

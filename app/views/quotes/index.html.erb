@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="row">
+  <div class="col">
+    <h1>Quotes</h1>
+  </div>
+
+  <div class="col d-flex align-items-end justify-content-end">
+    <%= link_to "New quote", new_quote_path, { class: "btn btn-primary" } %>
+  </div>
+</div>
+
+<hr>
+
+<div id="quotes" class="d-grid row-gap-3">
+  <%= render @quotes %>
+</div>
