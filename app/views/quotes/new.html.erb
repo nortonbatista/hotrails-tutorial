@@ -1,9 +1,9 @@
-<h1>New quote</h1>
+<div class="d-grid row-gap-3">
+  <%= link_to quotes_path, { class: 'fs-5 link-underline link-underline-opacity-0' } do %>
+    <i class="bi bi-arrow-left pe-1"></i>Back to quotes
+  <% end %>
 
-<%= render "form", quote: @quote %>
+  <h1>New quote</h1>
 
-<br>
-
-<div>
-  <%= link_to "Back to quotes", quotes_path %>
+  <%= render "form", quote: @quote %>
 </div>
