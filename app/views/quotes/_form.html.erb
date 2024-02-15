@@ -1,16 +1,26 @@
 <div class="border border-dark-subtle border-3 px-4 py-3">
-  <%= simple_form_for(@quote) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= form_with(model: quote) do |form| %>
+    <% if quote.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(quote.errors.count, "error") %>
+          prohibited this quote from being saved:</h2>
+
+        <ul>
+          <% quote.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="row">
       <div class="col">
-        <%= f.label :name, class: "form-label" %>
-        <%= f.input_field :name, class: "form-control" %>
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, required: true, class: "form-control" %>
       </div>
 
       <div class="d-flex align-items-end col-auto">
-        <%= f.button :submit, { class: "btn-primary" } %>
+        <%= form.submit "Create quote", class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
