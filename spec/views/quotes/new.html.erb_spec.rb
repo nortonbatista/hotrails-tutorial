@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'quotes/new' do
   before do
-    assign(:quote, Quote.new(
-                     name: 'MyString'
-                   ))
+    assign(:quote, build(:quote))
   end
 
   it 'renders new quote form' do

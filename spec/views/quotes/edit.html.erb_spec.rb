@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'quotes/edit' do
-  let(:quote) do
-    Quote.create!(
-      name: 'MyString'
-    )
-  end
+  let(:quote) { create(:quote) }
 
   before do
     assign(:quote, quote)

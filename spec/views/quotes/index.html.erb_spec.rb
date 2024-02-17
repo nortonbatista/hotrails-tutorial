@@ -1,20 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'quotes/index' do
+  let(:quote_name) { Faker::Quote.famous_last_words }
+
   before do
-    assign(:quotes, [
-             Quote.create!(
-               name: 'Name'
-             ),
-             Quote.create!(
-               name: 'Name'
-             )
-           ])
+    assign(:quotes, create_list(:quote, 2, name: quote_name))
   end
 
   it 'renders a list of quotes' do
     render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new('Name'.to_s), count: 2
+    assert_select 'div>p', text: Regexp.new(quote_name), count: 2
   end
 end
